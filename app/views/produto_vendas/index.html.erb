@@ -1,0 +1,33 @@
+<h1>Listing produto_vendas</h1>
+
+<table class='table table-striped'>
+  <thead>
+    <tr>
+      <th>Nome</th>  
+      <th>Valor venda</th>
+      <th>Quantidade</th>
+      <th>Venda</th>
+      <th>Produto</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @produto_vendas.each do |produto_venda| %>
+      <tr>
+        <td><%= produto_venda.produto %></td>  
+        <td><%= produto_venda.valor_venda %></td>
+        <td><%= produto_venda.quantidade %></td>
+        <td><%= produto_venda.venda %></td>
+        <td><%= produto_venda.produto %></td>
+        <td><%= link_to 'Show', produto_venda %></td>
+        <td><%= link_to 'Edit', edit_produto_venda_path(produto_venda) %></td>
+        <td><%= link_to 'Destroy', produto_venda, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Produto venda', new_produto_venda_path %>

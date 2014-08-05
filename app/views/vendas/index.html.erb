@@ -1,0 +1,28 @@
+<h1>Lista de Vendas</h1>
+
+<table class='table table-striped'>
+  <thead>
+    <tr>
+      <th>Numero</th>
+      <th>Cliente</th>
+      <th>Data da Venda</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @vendas.each do |venda| %>
+      <tr>
+        <td><%= venda.id %></td>
+        <td><%= venda.cliente.nome %></td>
+        <td><%= post_date venda.created_at %></td>
+        <td><%= link_to 'Mostrar', venda, :class => 'btn btn-primary' %></td>
+        <td><%= link_to 'Deletar', venda, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-primary' %></td> 
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Venda', new_venda_path %>

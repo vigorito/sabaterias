@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Cliente:</strong>
+  <%= @venda.cliente.nome %>
+</p>
+
+<%= render 'tabela' %>
+
+<%= form_for([@venda, @venda.produto_vendas.build]) do |f| %>
+    <%= f.label :produto_id %>
+    <%= f.select(:produto_id, Produto.all.collect{|l| [l.nome, l.id] } ) %>  
+    <%= f.text_field :observacao %>
+    <%= f.hidden_field :venda_id, :value => @venda.id %>
+    <%= f.hidden_field :quantidade, :value => "1" %>
+    <%= f.submit 'Incluir', :class => 'btn btn-primary' %>
+<% end %>
+
+<%= link_to 'Edit', edit_venda_path(@venda) %> |
+<%= link_to 'Back', vendas_path %>

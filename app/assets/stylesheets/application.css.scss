@@ -1,0 +1,18 @@
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+#tudo {
+width: 860px;
+margin:0 auto;			
+padding: 10px;
+text-align:left; /* "remédio" para o hack do IE */	
+}
+
+#conteudo {
+background-color: #eeeeee;
+}
+
+#total{
+  float: right; 
+}
